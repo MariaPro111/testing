@@ -87,8 +87,10 @@ public class TestsActivity extends AppCompatActivity {
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             Test test = getItem(position);
+
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.activity_tests, null);
+            convertView = inflater.inflate(R.layout.test_item, null);
+
             TextView title = convertView.findViewById(R.id.title);
             title.setText(test.getTitle());
             
