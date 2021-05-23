@@ -20,19 +20,20 @@ public class CreateTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createtest);
 
-        TestsDataBase testsdb=new TestsDataBase(this);
-        button=(Button) findViewById(R.id.button);
-        editTitle=(EditText) findViewById(R.id.editTitle);
+        TestsDataBase testsdb = new TestsDataBase(this);
+        button = (Button) findViewById(R.id.button);
+        editTitle = (EditText) findViewById(R.id.editTitle);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             String title=editTitle.getText().toString();
 
-                SQLiteDatabase database=testsdb.getWritableDatabase();
-                ContentValues contentValues=new ContentValues();
-                contentValues.put(TestsDataBase.TESTS, title);
-                testsdb.close();
-
+                SQLiteDatabase database = testsdb.getWritableDatabase();
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(TestsDataBase.TESTS_TITLE, title);
+                database.insert(TestsDataBase.TESTS, null, contentValues);
+                database.close();
+                
                 Intent intent = new Intent();
                 intent.setClass(CreateTestActivity.this, AddQuestionActivity.class);
                 startActivity(intent);
