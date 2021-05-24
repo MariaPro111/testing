@@ -54,11 +54,12 @@ public class TestsActivity extends AppCompatActivity {
 
         SQLiteDatabase database=testsdb.getWritableDatabase();
 
-        Cursor c =database.rawQuery("select title from tests", null);
+        Cursor c = database.rawQuery("select _ID, title from tests", null);
         int titleIndex = c.getColumnIndex("title");
+        int idIndex = c.getColumnIndex("_ID");
         c.moveToFirst();
         while (!c.isAfterLast()) {
-            Test test = new Test(c.getString(titleIndex));
+            Test test = new Test(c.getLong(idIndex), c.getString(titleIndex));
             tests.add(test);
             c.moveToNext();
         }
@@ -90,7 +91,6 @@ public class TestsActivity extends AppCompatActivity {
 
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.test_item, null);
-
             TextView title = convertView.findViewById(R.id.title);
             title.setText(test.getTitle());
             

@@ -1,6 +1,9 @@
 package com.example.tests;
 
-public class Answer {private Long id;
+import java.io.Serializable;
+
+public class Answer implements Serializable {
+    private Long id;
     private String answer;
     private boolean correct;
 

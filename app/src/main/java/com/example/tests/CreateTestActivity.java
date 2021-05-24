@@ -33,7 +33,6 @@ public class CreateTestActivity extends AppCompatActivity {
                 contentValues.put(TestsDataBase.TESTS_TITLE, title);
                 database.insert(TestsDataBase.TESTS, null, contentValues);
                 database.close();
-
                 Intent intent = new Intent();
                 intent.setClass(CreateTestActivity.this, AddQuestionActivity.class);
                 startActivity(intent);

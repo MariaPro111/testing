@@ -4,16 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test  implements Serializable{
+public class Test  implements Serializable {
     private Long id;
     private String title;
     private List<Question> questions = new ArrayList<>();
 
-    public Test(String title){
-      this.title=title;
+    public Test(Long id, String title){
+        this.id = id;
+        this.title=title;
     }
-
-
 
     public Long getId() { return id;
     }
@@ -38,11 +37,11 @@ public class Test  implements Serializable{
         this.questions = questions;
     }
 
-    //@Override
-  // public String toString() {
-       //return "Test{" +
-            //    "id=" + id +
-               // ", title='" + title + '\'' +
-              //  '}';
-   // }
+    @Override
+    public String toString() {
+        return "Test{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                '}';
+    }
 }

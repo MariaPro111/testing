@@ -11,7 +11,7 @@ public class TestsDataBase  extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     public static final String TESTS="tests";
-    public static final String TESTS_ID="tests_id";
+    public static final String TESTS_ID="_ID";
     public static final String TESTS_TITLE="title";
 
 
